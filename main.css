@@ -1,0 +1,231 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body {
+	background: linear-gradient(180deg, #ebf2fc 0%, #eef8f9 100%);
+	min-height: 100vh;
+	color: hsl(227, 75%, 14%);
+	font-family: "Noto Sans", sans-serif;
+}
+body.dark {
+	background: linear-gradient(180deg, #040918 0%, #091540 100%);
+	color: white;
+}
+:focus {
+	outline: hsl(3, 77%, 44%) 2px solid;
+	outline-offset: 2px;
+}
+body.dark :focus {
+	outline: hsl(3, 86%, 64%) 2px solid;
+}
+.app {
+	max-width: 1500px;
+	margin: 0 auto;
+	padding: 30px 80px;
+	/* display: flex;
+	flex-direction: column; */
+}
+.top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: hsl(0, 0%, 100%);
+	width: 100%;
+	padding: 15px;
+	border-radius: 20px;
+	margin-bottom: 75px;
+}
+body.dark .top {
+	background-color: hsl(226, 25%, 17%);
+}
+.mode {
+	width: 50px;
+	height: 50px;
+	padding: 12px;
+	border-radius: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	background-color: hsl(0, 0%, 93%);
+}
+body.dark .mode {
+	background-color: hsl(225, 23%, 24%);
+}
+
+.mode:hover,
+.filter:hover {
+	background-color: hsl(0, 0%, 78%);
+}
+body.dark .mode:hover,
+body.dark .filter:hover {
+	background-color: hsl(226, 11%, 37%);
+}
+
+.mode .icon {
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-image: url("assets/images/icon-moon.svg");
+	width: 100%;
+	height: 100%;
+}
+body.dark .mode .icon {
+	background-image: url("assets/images/icon-sun.svg");
+}
+
+.top .logo {
+	width: 179px;
+	height: 41px;
+	background-size: cover;
+	background-image: url("assets/images/logo.svg");
+}
+body.dark .top .logo {
+	background-image: url("assets/images/logo-dark.svg");
+}
+.heading {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin-bottom: 42px;
+	gap: 30px;
+}
+.filters {
+	display: flex;
+	gap: 10px;
+}
+
+.filter {
+	padding: 12px 18px;
+	background-color: white;
+	border-radius: 50px / 100%;
+	border: hsl(226, 11%, 37%) solid 1px;
+	cursor: pointer;
+	transition: 0.4s;
+}
+
+body.dark .filter {
+	background-color: hsl(225, 23%, 24%);
+}
+.filter.selected,
+.delete:hover {
+	background-color: hsl(3, 77%, 44%);
+	color: white;
+}
+body.dark .filter.selected,
+body.dark .delete:hover {
+	background-color: hsl(3, 71%, 56%);
+	color: hsl(227, 75%, 14%);
+}
+.extensions {
+	justify-content: center;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+	gap: 12px;
+}
+
+.extension {
+	background-color: white;
+	border-radius: 15px;
+	border: hsl(226, 11%, 37%) solid 2px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 12px;
+	gap: 30px;
+}
+
+body.dark .extension {
+	background-color: hsl(226, 25%, 17%);
+}
+.extension .info {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+}
+.extension .info img {
+	max-width: 60px;
+}
+
+
+.extension .info p {
+	color: hsl(226, 11%, 37%);
+}
+body.dark .extension .info p {
+	color: hsl(0, 0%, 78%);
+}
+
+.extension .settings {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.extension .delete {
+	border: hsl(0, 0%, 78%) solid 2px;
+	border-radius: 50px / 100%;
+	cursor: pointer;
+	padding: 10px 16px;
+	transition: 0.4s;
+}
+
+.toggle {
+	position: relative;
+	width: 36px;
+	border-radius: 10px;
+	height: 20px;
+}
+.toggle input {
+	display: none;
+}
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: hsl(0, 0%, 78%);
+	transition: 0.4s;
+	border-radius: 10px;
+}
+body.dark .slider {
+	background-color: hsl(226, 11%, 37%);
+}
+.slider::before {
+	position: absolute;
+	content: "";
+	width: 16px;
+	height: 16px;
+	left: 2px;
+	bottom: 2px;
+	background-color: white;
+	border-radius: 50%;
+	transition: 0.4s;
+}
+.toggle input:checked + .slider {
+	background-color: hsl(3, 77%, 44%);
+}
+body.dark .toggle input:checked + .slider {
+	background-color: hsl(3, 71%, 56%);
+}
+.toggle input:checked + .slider::before {
+	transform: translateX(16px);
+}
+
+@media (max-width: 1000px) {
+	.extensions {
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	}
+}
+@media (max-width: 768px) {
+	.app {
+		padding: 16px;
+	}
+	.heading {
+		justify-content: center;
+	}
+	.extensions {
+		grid-template-columns: 1fr;
+	}
+}
