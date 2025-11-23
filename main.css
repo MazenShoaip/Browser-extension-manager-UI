@@ -128,7 +128,7 @@ body.dark .delete:hover {
 .extension {
 	background-color: white;
 	border-radius: 15px;
-	border: hsl(226, 11%, 37%) solid 2px;
+	border: hsl(217, 61%, 90%) solid 1px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -137,6 +137,7 @@ body.dark .delete:hover {
 }
 
 body.dark .extension {
+	border: hsl(226, 11%, 37%) solid 1px;
 	background-color: hsl(226, 25%, 17%);
 }
 .extension .info {
@@ -148,6 +149,11 @@ body.dark .extension {
 	max-width: 60px;
 }
 
+.extension .info .text {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
 
 .extension .info p {
 	color: hsl(226, 11%, 37%);
@@ -162,11 +168,14 @@ body.dark .extension .info p {
 	align-items: center;
 }
 .extension .delete {
-	border: hsl(0, 0%, 78%) solid 2px;
+	border: hsl(0, 0%, 78%) solid 1px;
 	border-radius: 50px / 100%;
 	cursor: pointer;
 	padding: 10px 16px;
 	transition: 0.4s;
+}
+body.dark .extension .delete {
+	border: hsl(226, 11%, 37%) solid 1px;
 }
 
 .toggle {
